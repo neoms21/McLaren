@@ -66,7 +66,7 @@ describe("Stories Controller Tests", function () {
         expect($state.go).toHaveBeenCalledWith('story', {id: '1'});
     }));
 
-    it("should remove the story from list once successfully deleted", inject(function ($state) {
+    it("should remove the story from list once successfully deleted", inject(function () {
         vm.stories = [
             {id: '1', feature: 'abc'},
             {id: '2', feature: 'abc'},

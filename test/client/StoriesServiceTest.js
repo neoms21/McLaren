@@ -55,7 +55,13 @@ describe("Stories Service Tests", function () {
         StoriesService.getStory('100');
         deferred.resolve();
         $scope.$digest();
+
         expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/100', verb: 'GET'});
+        StoriesService.getStory('200');
+        deferred.resolve();
+        $scope.$digest();
+
+        expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/200', verb: 'GET'});
     });
 
     it("should modify the url from constants service to include id for editing a story", function () {
@@ -63,6 +69,10 @@ describe("Stories Service Tests", function () {
         deferred.resolve();
         $scope.$digest();
         expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/100', verb: 'PATCH'}, {id: '100'});
+        StoriesService.editStory({id: '200'});
+        deferred.resolve();
+        $scope.$digest();
+        expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/200', verb: 'PATCH'}, {id: '200'});
     });
 
     it("should modify the url from constants service to include id for deleting a story", function () {
@@ -70,5 +80,10 @@ describe("Stories Service Tests", function () {
         deferred.resolve();
         $scope.$digest();
         expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/100', verb: 'DELETE'});
+        StoriesService.deleteStory('200');
+        deferred.resolve();
+        $scope.$digest();
+        expect(mockMlProxy.sendRequest).toHaveBeenCalledWith({name: 'stories/200', verb: 'DELETE'});
+
     });
 });

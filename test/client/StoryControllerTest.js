@@ -131,7 +131,6 @@ describe("Story Controller", function () {
             defEdit.resolve();
             $scope.$digest();
             expect(StoriesService.deleteStory).toHaveBeenCalledWith(vm.story.id);
-            // expect(vm.story.id).toBe('1');
         });
     });
 

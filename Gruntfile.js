@@ -45,6 +45,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-karma");
 
     // running `grunt w` will startup karma and run the watch tasks
-    grunt.registerTask("w", ["karma:unit:start", "watch"]);
+    grunt.registerTask("w", ["karma:unit:start"]);
     grunt.registerTask("watch-tasks", ["karma:unit:run"]);
 };
