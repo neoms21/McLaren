@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="page-header">
+
+        <h3>
+            task
+            <small>{{tc.headerText}}</small>
+        </h3>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <form class="form-horizontal" name="taskForm" ng-submit="tc.save()" novalidate>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : !taskForm.description.$pristine && taskForm.description.$invalid  }">
+                    <label for="description" class="col-sm-2">Description</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="description" id="description"
+                               placeholder="Please enter description"
+                               ng-model="tc.task.description" required>
+                        <p ng-show="!taskForm.description.$pristine && taskForm.description.$invalid"
+                           class="help-block">Description is required.</p>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : taskForm.priority.$dirty &&  taskForm.priority.$invalid }">
+                    <label for="priority" class="col-sm-2">Priority</label>
+
+                    <div class="col-sm-10">
+                        <select id="priority" name="priority" class="form-control" ng-model="tc.task.priority"
+                                ng-options="priority.value as priority.text for priority in tc.priorities"
+                                required>
+                            <option value="">
+                                Select a priority
+                            </option>
+                        </select>
+                        <p ng-show="taskForm.priority.$dirty && taskForm.priority.$invalid "
+                           class="help-block">Priority is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : taskForm.status.$dirty && taskForm.status.$invalid}">
+                    <label for="status" class="col-sm-2">Status</label>
+
+                    <div class="col-sm-10">
+                        <select id="status" name="status" class="form-control" ng-model="tc.task.status"
+                                ng-options="status.value as status.text for status in tc.statuses"
+                                required>
+                            <option value="">
+                                Select Status
+                            </option>
+                        </select>
+                        <p ng-show="taskForm.status.$dirty && taskForm.status.$invalid"
+                           class="help-block">Status is required.</p>
+                    </div>
+
+                </div>
+                 <div class="form-group"
+                     ng-class="{ 'has-error' : taskForm.story.$dirty && taskForm.story.$invalid}">
+                    <label for="story" class="col-sm-2">Status</label>
+
+                    <div class="col-sm-10">
+                        <select id="story" name="story" class="form-control" ng-model="tc.selectedStoryId"
+                                ng-options="story.id as story.feature for story in tc.stories"
+                                required>
+                            <option value="">
+                                Select Story
+                            </option>
+                        </select>
+                        <p ng-show="taskForm.story.$dirty && taskForm.story.$invalid"
+                           class="help-block">Story is required.</p>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" ng-disabled="taskForm.$invalid">Save</button>
+
+            </form>
+            <button ng-click="tc.delete()" class="btn btn-danger" ng-show="tc.task.id">Delete</button>
+
+        </div>
+    </div>
+</div>

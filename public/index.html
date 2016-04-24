@@ -1,0 +1,40 @@
+
+<html lang="en" >
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agile Board</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!--<link href="/public/css/style.css" rel="stylesheet" type="text/css">-->
+</head>
+
+<body ng-app="app">
+<div class="page-header text-center">
+    Agile Board
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" ui-view></div>
+    </div>
+</div>
+
+<!-- Load up Angular -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
+<!-- Load up our scripts -->
+<script src="js/app.js"></script>
+<script src="js/utilities.js"></script>
+<script src="js/mlProxy.js"></script>
+<script src="js/constantsService.js"></script>
+<script src="js/config.js"></script>
+<script src="stories/StoriesController.js"></script>
+<script src="stories/StoryController.js"></script>
+<script src="stories/StoriesService.js"></script>
+<script src="tasks/TasksService.js"></script>
+<script src="tasks/TasksController.js"></script>
+<script src="tasks/TaskController.js"></script>
+</body>
+
+</html>

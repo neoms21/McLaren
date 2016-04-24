@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4 class="well well-sm">Tasks
+            </h4>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-1 ">
+            <button class="btn btn-sm btn-success" ng-click="tc.gotoTask()">Add task</button>
+        </div>
+        <div class="col-md-offset-10 col-md-1 ">
+            <a ui-sref="stories">Stories</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Story</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="task in tc.tasks">
+                    <td width="30%"><a href="" ng-click="tc.gotoTask(task)">{{task.description}}</a></td>
+                    <td width="45%">{{task.story}}</td>
+                    <td width="10%">{{task.priority}}</td>
+                    <td width="10%">{{task.status}}</td>
+                    <td width="5%"><button ng-click="tc.delete(task.id)" class="btn btn-sm btn-danger">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

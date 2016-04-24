@@ -1,0 +1,34 @@
+{
+  "name": "core.recruitment.challenges.board",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "mocha test/server",
+    "karma": "./node_modules/karma/bin/karma start test/client/karma.conf.js"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "lodash": "^3.10.1",
+    "morgan": "~1.6.1",
+    "node-uuid": "^1.4.3",
+    "cookie-parser": "~1.3.5"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-karma": "^0.12.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.8",
+    "mocha": "^2.2.5",
+    "nodemon": "^1.4.1",
+    "should": "^7.1.0",
+    "supertest": "^1.0.1"
+  }
+}

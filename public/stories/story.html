@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="page-header">
+
+        <h3>
+            Story
+            <small>{{sc.headerText}}</small>
+        </h3>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <form class="form-horizontal" name="storyForm" ng-submit="sc.save()" novalidate>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : !storyForm.feature.$pristine && storyForm.feature.$invalid  }">
+                    <label for="feature" class="col-sm-2">Feature</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="feature" id="feature"
+                               placeholder="Please enter feature name"
+                               ng-model="sc.story.feature" required>
+                        <p ng-show="!storyForm.feature.$pristine && storyForm.feature.$invalid"
+                           class="help-block">Feature name is required.</p>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : storyForm.priority.$dirty &&  storyForm.priority.$invalid }">
+                    <label for="priority" class="col-sm-2">Priority</label>
+
+                    <div class="col-sm-10">
+                        <select id="priority" name="priority" class="form-control" ng-model="sc.story.priority"
+                                ng-options="priority.value as priority.text for priority in sc.priorities"
+                                required>
+                            <option value="">
+                                Select a priority
+                            </option>
+                        </select>
+                        <p ng-show="storyForm.priority.$dirty && storyForm.priority.$invalid "
+                           class="help-block">Priority is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : storyForm.persona.$dirty && storyForm.persona.$invalid}">
+                    <label for="persona" class="col-sm-2">Persona</label>
+
+                    <div class="col-sm-10">
+                        <select id="persona" name="persona" class="form-control" ng-model="sc.story.persona"
+                                ng-options="persona.value as persona.text for persona in sc.personas"
+                                required>
+                            <option value="">
+                                Select a Persona
+                            </option>
+                        </select>
+                        <p ng-show="storyForm.persona.$dirty && storyForm.persona.$invalid"
+                           class="help-block">Persona is required.</p>
+                    </div>
+
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error' :!storyForm.justification.$pristine && storyForm.justification.$invalid  }">
+                    <label for="justification" class="col-sm-2">Justification</label>
+
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="justification" name="justification"
+                                  ng-model="sc.story.justification"
+                                  placeholder="Please enter justification" required></textarea>
+                        <p ng-show="!storyForm.justification.$pristine && storyForm.justification.$invalid  "
+                           class="help-block">Justification is mandatory.</p>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" ng-disabled="storyForm.$invalid">Save</button>
+
+            </form>
+            <button ng-click="sc.delete()" class="btn btn-danger" ng-show="sc.story.id">Delete</button>
+
+        </div>
+    </div>
+</div>
