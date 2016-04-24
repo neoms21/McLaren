@@ -134,7 +134,7 @@ describe("Task Controller", function () {
             expect(vm.stories.length).toBe(2);
             expect(vm.selectedStoryId).toEqual('s1');
             expect(vm).toBeDefined();
-            expect(vm.task).toEqual(task)
+            expect(vm.task).toEqual(task);
             expect(vm.headerText).toBe('existing Task');
         });
 

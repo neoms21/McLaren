@@ -19,7 +19,7 @@ app.service("StoriesService", function (constantsService, mlProxy) {
     };
 
     this.getStory = function (id) {
-        var req = clone(constantsService.Requests.GetStory);
+        var req = getClone(constantsService.Requests.GetStory);
         req.name = String.format(req.name, id);
         return mlProxy.sendRequest(req);
     };
@@ -29,13 +29,13 @@ app.service("StoriesService", function (constantsService, mlProxy) {
     };
 
     this.editStory = function (story) {
-        var req = clone(constantsService.Requests.UpdateStory);
+        var req = getClone(constantsService.Requests.UpdateStory);
         req.name = String.format(req.name, story.id);
         return mlProxy.sendRequest(req, story);
     };
 
     this.deleteStory = function (id) {
-        var req = clone(constantsService.Requests.DeleteStory);
+        var req = getClone(constantsService.Requests.DeleteStory);
         req.name = String.format(req.name, id);
         return mlProxy.sendRequest(req);
     };

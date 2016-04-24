@@ -14,18 +14,18 @@ String.format = function () {
     return theString;
 };
 
-function clone(source) {
+function getClone(source) {
     if (Object.prototype.toString.call(source) === '[object Array]') {
         var clone = [];
         for (var i = 0; i < source.length; i++) {
-            clone[i] = this.clone(source[i]);
+            clone[i] = getClone(source[i]);
         }
         return clone;
     } else if (typeof(source) == "object") {
         var clone = {};
         for (var prop in source) {
             if (source.hasOwnProperty(prop)) {
-                clone[prop] = this.clone(source[prop]);
+                clone[prop] = getClone(source[prop]);
             }
         }
         return clone;

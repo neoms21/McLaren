@@ -1,7 +1,7 @@
 app.controller("TaskController", function (TasksService, StoriesService, $stateParams, $state) {
     var tc = this;
     tc.task = undefined;
-    tc.selectedStoryId;
+    tc.selectedStoryId = undefined;
     tc.statuses = TasksService.statuses;
     tc.priorities = TasksService.priorities;
 
@@ -9,7 +9,7 @@ app.controller("TaskController", function (TasksService, StoriesService, $stateP
         tc.stories = stories;
         setTaskPage();
 
-    })
+    });
 
     function setTaskPage() {
         if ($stateParams.id === '0') {
@@ -19,7 +19,7 @@ app.controller("TaskController", function (TasksService, StoriesService, $stateP
                 tc.task = task;
                 var story = _.find(tc.stories, function (s) {
                     return s.id === task.story_id;
-                })
+                });
                 if(story !== undefined)
                     tc.selectedStoryId = story.id;
                 tc.headerText = tc.task.description;
